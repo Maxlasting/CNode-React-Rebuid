@@ -1,0 +1,37 @@
+@import './markdown.scss';
+
+.topicDetailContainer {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  padding: 20px;
+
+  .meta {
+    display: flex;
+    align-items: center;
+  }
+
+  .cardTitleWrap  {
+    .title {
+      font-size: 26px;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+    }
+
+    .auth {
+      margin: 0 8px;
+      display: flex;
+      align-items: center;
+    }
+
+    .createAt {
+      margin: 0 8px;
+    }
+
+    .collectBtn {
+      margin-left: 20px;
+    }
+  }
+
+}

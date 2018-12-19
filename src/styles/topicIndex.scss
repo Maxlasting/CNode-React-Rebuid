@@ -1,0 +1,53 @@
+@mixin textHidden ($width) {
+  max-width: $width;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.topicIndexContainer {
+  width: 100%;
+  height: 100%;
+
+  .topicTypes,
+  .topicList {
+    height: 100%;
+  }
+
+
+  .topicList {
+    box-sizing: border-box;
+    padding: 0 20px;
+    .content {
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      box-sizing: border-box;
+      padding: 20px;
+
+      .listContainer {
+        margin-bottom: 20px;
+      }
+
+      .reply {
+        margin-left: 35px;
+      }
+
+      .title {
+        display: flex;
+      }
+
+      .link {
+        @include textHidden(340px)
+      }
+    }
+  }
+
+  .card + .card {
+    margin-top: 20px;
+  }
+
+  .newTopicList .link {
+    @include textHidden(270px)
+  }
+}
