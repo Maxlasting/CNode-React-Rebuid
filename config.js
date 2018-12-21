@@ -2,7 +2,7 @@ const { join } = require('path')
 
 let publicPath = '/'
 
-if (process.env.NODE_EVN === 'production') {
+if (process.env.NODE_ENV === 'production') {
   publicPath = '//res.maxlasting.com/cnode/'
 }
 

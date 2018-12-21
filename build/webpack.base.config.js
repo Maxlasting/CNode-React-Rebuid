@@ -29,7 +29,8 @@ const config = merge(loaderConfig, {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: join(__dirname, '../index.html')
+      template: join(__dirname, '../index.html'),
+      minify: process.env.NODE_ENV === 'production' ? { collapseWhitespace: true, minifyJS: true, minifyCSS: true } : false
     }),
     new NotifierPlugin({
       title: '编译完成...',

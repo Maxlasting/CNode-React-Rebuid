@@ -4,39 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title></title>
-  <script>
-    // ;(function (props) {
-    //   const docEle = document.documentElement
-    //   const radio = window.devicePixelRatio
-    //   const scale = 1 / radio
-    //   const resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
-    //   const meta = document.querySelector('meta[name=viewport]')
-
-    //   meta.setAttribute('content', 'initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no')
-
-    //   function refreshRem () {
-    //     const clientWidth = docEle.getBoundingClientRect().width
-    //     docEle.style.fontSize = props.fontSize * (clientWidth / props.width) + 'px'
-    //   }
-
-    //   window.addEventListener(resizeEvt, function () {
-    //     clearTimeout(refreshRem.tid)
-    //     refreshRem.tid = setTimeout(refreshRem, 300)
-    //   }, false)
-
-    //   window.addEventListener('pageshow', function (e) {
-    //     if (e.persisted) {
-    //       clearTimeout(refreshRem.tid)
-    //       refreshRem.tid = setTimeout(refreshRem, 300)
-    //     }
-    //   }, false)
-
-    //   window.addEventListener('load', refreshRem, false)
-    // })({ fontSize: 100, width: 1920 });
-  </script>
+  <title>CNode</title>
 </head>
 <body>
   <div id="root"></div>
+  <div id="_loading_" style="width: 400px; height: 300px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; justify-content: center;">
+    <img src="https://res.maxlasting.com/cnode/loading.gif" width="400" height="300"/>
+  </div>
+  <script id="_script_">
+    !function () {
+      var root = document.getElementById('root');
+      var _script_ = document.getElementById('_script_');
+      var _loading_ = document.getElementById('_loading_');
+      
+      var timer = setInterval(function () {
+        if (root.children.length) {
+          clearInterval(timer)
+          document.body.removeChild(_loading_)
+          document.body.removeChild(_script_)
+        }
+      }, 50)
+    }();
+  </script>
 </body>
 </html>
