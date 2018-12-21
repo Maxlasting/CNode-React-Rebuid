@@ -1,11 +1,19 @@
-html, body, #root {
+html {
   width: 100%;
-  margin: 0;
-  padding: 0;
+  height: 100%;
 }
 
 body {
   min-width: 1280px;
+  height: 100%;
+}
+
+#root {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 #app {
