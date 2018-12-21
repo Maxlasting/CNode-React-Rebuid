@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+const { join } = require('path')
 const merge = require('webpack-merge')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const Webpackbar = require('webpackbar')
@@ -24,6 +25,12 @@ for (let key in interfaces) {
 }
 
 const config = merge(baseConfig, {
+  entry: {
+    'client-bundle': [
+      'react-hot-loader/patch', 
+      join(__dirname, '../src/', 'index.js')
+    ]
+  },
   devtool: '#cheap-module-source-map',
   plugins: [
     new Webpackbar({ color: '#f46a97' }),

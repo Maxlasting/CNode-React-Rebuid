@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Col, Row, Menu, Icon, Dropdown, Avatar } from 'antd'
 import { navLinkConfig, userLinkConfig } from '../utils/config.js'
-
 import '../styles/commonHeader.scss'
 
+@withRouter
 class CommonHeader extends Component {
-  state = {}
-
   render () {
+    const currentKey = this.props.history.location.pathname
+    
     const userMenu = (
       <Dropdown 
         overlay={
           <Menu style={{minWidth: 180, textAlign: "center", transform: 'translateY(10px)'}}>
             {
               userLinkConfig.map(itemData => (
-                <Menu.Item key={itemData.name}>
+                <Menu.Item key={itemData.link}>
                   <Link to={itemData.link}>{itemData.name}</Link>
                 </Menu.Item>
               ))
@@ -50,12 +51,12 @@ class CommonHeader extends Component {
               <Menu
                 className="menuStyle"
                 mode="horizontal"
-                selectable={false}
-                selectedKeys={[]}
+                selectable={ false }
+                selectedKeys={ [currentKey] }
               >
                 {
                   navLinkConfig.map(itemData => (
-                    <Menu.Item key={itemData.name}>
+                    <Menu.Item key={itemData.link}>
                       <Link to={itemData.link}>
                         <Icon type={itemData.icon} /> {itemData.name}
                       </Link>

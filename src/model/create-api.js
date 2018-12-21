@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const request = axios.create({
-  baseURL: 'https://cnodejs.org/api/v1'
+  baseURL: '/api'
 })
 
 const createRequest = request => new Promise((resolve, reject) => {
@@ -22,7 +22,7 @@ const api_getIndexTopicsData = (params) => createRequest(
 )
 
 const api_getTopicDetailById = (id) => createRequest(
-  request.get('/topic/' + id)
+  request.get('/topicDetail', { params: {topicId: id}})
 )
 
 export default {
