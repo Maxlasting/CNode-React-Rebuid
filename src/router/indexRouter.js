@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import Index from '../views/topicIndex.js'
-import Detail from '../views/topicDetail.js'
+import Index from '../views/indexTopicList.js'
+import Detail from '../views/detailTopicInfo.js'
 import Study from '../views/study.js'
 import About from '../views/about.js'
 

@@ -21,13 +21,6 @@ class TopicIndex extends Component {
   }
 
   async componentDidMount() {
-    const { tab, page } = this.handleGetQueryDataFn()
-    const { initTab, initPage } = this.state
-
-    if (!topicTypeConfig[tab] || !(page*1)) {
-      this.handleChangeRouteFn(topicTypeConfig[tab] ? tab : initTab, page*1 ? page : initPage)
-    }
-
     await this.props.ac_getIndexTopicsData(this.handleGetQueryDataFn())
   }
 
@@ -59,13 +52,18 @@ class TopicIndex extends Component {
   handleGetQueryDataFn = (search) => {
     const currentSearch = search || this.props.location.search
     const queryData = currentSearch ? qs.parse(currentSearch) : {}
-    return queryData
+    const { page, tab } = queryData
+    const { initPage, initTab } = this.state 
+    return {
+      page: page ? page : initPage,
+      tab: tab ? tab : initTab
+    }
   }
 
   render() {
     const { tab, page } = this.handleGetQueryDataFn()
     const { handleChangePageFn, handleTabLinkClickFn } = this
-    const { state_requestLoaded, state_indexTopicsData } = this.props
+    const { state_requestTopicLoaded, state_indexTopicsData } = this.props
 
     return (
       <Row className="topicIndexContainer">
@@ -99,7 +97,7 @@ class TopicIndex extends Component {
             <div className="listContainer">
               <List
                 itemLayout="horizontal"
-                loading={!state_requestLoaded}
+                loading={!state_requestTopicLoaded}
                 dataSource={state_indexTopicsData}
                 renderItem={
                   (item) => (
@@ -138,7 +136,7 @@ class TopicIndex extends Component {
             </div>
 
             {
-              state_requestLoaded ?
+              state_requestTopicLoaded ?
                 (
                   <Pagination
                     showQuickJumper
@@ -173,7 +171,7 @@ class TopicIndex extends Component {
             <div className="newTopicList">
               <List
                 itemLayout="horizontal"
-                loading={!state_requestLoaded}
+                loading={!state_requestTopicLoaded}
                 dataSource={state_indexTopicsData.slice(0, 10)}
                 renderItem={
                   (item) => (

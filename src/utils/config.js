@@ -20,15 +20,18 @@ export const navLinkConfig = [
 export const userLinkConfig = [
   {
     name: '发布话题',
-    link: '/write'
+    link: '/write',
+    click: false
   },
   {
     name: '用户中心',
-    link: '/user'
+    link: '/user',
+    click: false
   },
   {
     name: '退出登陆',
-    link: '/logout'
+    link: false,
+    click: false
   }
 ]
 

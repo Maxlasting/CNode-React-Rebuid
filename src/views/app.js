@@ -3,6 +3,7 @@ import IndexRouter from '../router/indexRouter.js'
 import '../styles/default.scss'
 import CommonHeader from './commonHeader.js'
 import CommonFooter from './commonFooter.js'
+import InitLoginStatus from './initLoginStatus.js'
 
 class App extends Component {
   constructor () {
@@ -11,6 +12,7 @@ class App extends Component {
   render () {
     return (
       <div id="app">
+        <InitLoginStatus/>
         <CommonHeader/>
         <IndexRouter/>
         <CommonFooter/>

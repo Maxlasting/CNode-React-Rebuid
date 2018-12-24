@@ -7,6 +7,7 @@ const request = axios.create({
 const createRequest = request => new Promise((resolve, reject) => {
   request
     .then((res) => {
+      console.log(res)
       if (res.data.success) {
         resolve({ status: res.status, data: res.data })
       } else {
@@ -18,14 +19,34 @@ const createRequest = request => new Promise((resolve, reject) => {
 
 // page, tab, limit
 const api_getIndexTopicsData = (params) => createRequest(
-  request.get('/topics', { params: { ...params, limit: 20 } })
+  request.get('/topics', { params })
 )
 
 const api_getTopicDetailById = (id) => createRequest(
   request.get('/topicDetail', { params: {topicId: id}})
 )
 
+const api_userRegister = (params) => createRequest(
+  request.post('/register', params)
+)
+
+const api_userLogin = (params) => createRequest(
+  request.post('/login', params)
+)
+
+const api_userLogout = () => createRequest(
+  request.get('/logout')
+)
+
+const api_checkLoginStatus = () => createRequest(
+  request.get('/checkIfLogin')
+)
+
 export default {
   api_getIndexTopicsData,
-  api_getTopicDetailById
+  api_getTopicDetailById,
+  api_userRegister,
+  api_userLogin,
+  api_userLogout,
+  api_checkLoginStatus
 }

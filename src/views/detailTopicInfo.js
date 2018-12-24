@@ -20,7 +20,7 @@ class TopicDetail extends Component {
   }
 
   render () {
-    const { state_requestLoaded } = this.props
+    const { state_requestTopicLoaded } = this.props
     const { 
       author, 
       create_at, 
@@ -66,7 +66,7 @@ class TopicDetail extends Component {
         <Card
           bordered={ false }
           title={ cardTitle }
-          loading={ !state_requestLoaded }
+          loading={ !state_requestTopicLoaded }
         >
           <p className="markdownBody" dangerouslySetInnerHTML={{__html: content}}></p>
         </Card>
@@ -75,11 +75,11 @@ class TopicDetail extends Component {
           type="inner"
           bordered={ false }
           title={ replies.length + '回复' }
-          loading={ !state_requestLoaded }
+          loading={ !state_requestTopicLoaded }
         >
           <List
             itemLayout="vertical"
-            loading={ !state_requestLoaded }
+            loading={ !state_requestTopicLoaded }
             dataSource={ replies }
             renderItem={
               (item, i) => (

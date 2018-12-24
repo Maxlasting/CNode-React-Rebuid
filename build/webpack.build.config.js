@@ -22,7 +22,7 @@ const config = merge(baseConfig, {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(nodeEnv)
     }),
-    // new WebpackProgressOraPlugin({ clear: true }),
+    new WebpackProgressOraPlugin({ clear: true }),
     new webpack.NamedChunksPlugin()
   ]
 })
