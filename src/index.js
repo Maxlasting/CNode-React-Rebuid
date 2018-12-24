@@ -16,7 +16,7 @@ const store = createStore(reducer, compose(
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename="/cnode">
       <AppRouter/>
     </BrowserRouter>
   </Provider>,

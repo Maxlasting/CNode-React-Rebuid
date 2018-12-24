@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const request = axios.create({
-  baseURL: '/api'
+  baseURL: '/cnode/api'
 })
 
 const createRequest = request => new Promise((resolve, reject) => {

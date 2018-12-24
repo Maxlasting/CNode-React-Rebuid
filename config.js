@@ -11,7 +11,7 @@ module.exports = {
   port: 3000,
   // 代理服务配置，详见 https://webpack.js.org/configuration/dev-server/#devserver-proxy
   proxy: {
-    '/api': {
+    '/cnode/api': {
       target: 'http://localhost:8080',
       changeOrigin: true
     }
